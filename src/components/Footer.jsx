@@ -1,60 +1,29 @@
-import React from "react";
-import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
+import React from 'react';
+import { FaFacebook, FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white py-8">
-      <div className="container mx-auto px-8 md:px-16 lg:px-24">
-        <div className="flex flex-col md:flex-row md:space-x-12 items-center mb-4">
-          <div className="flex-1 mb-4 md:mb-0">
-            <h3 className="text-2xl font-bold mb-2">Sumit Kumar</h3>
-            <p className="text-gray-400">
-              Full-Stack Developer based in India, specializing in Full Stack Software development and Machine Learning.
+    <footer className="bg-secondary text-text-main py-8 border-t border-border transition-colors duration-300">
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="mb-4 md:mb-0 text-center md:text-left">
+            <h3 className="text-2xl font-bold gradient-text mb-2">Sumit Kumar</h3>
+            <p className="text-text-muted text-sm">
+              Full-Stack Developer & Machine Learning Enthusiast
+            </p>
+            <p className="text-text-muted text-xs mt-1">
+              &copy; {new Date().getFullYear()} Sumit Kumar. All rights reserved.
             </p>
           </div>
-          <div className="flex-1 w-full">
-            <form className="flex items-center justify-center">
-              <input
-                type="email"
-                placeholder="Your email"
-                className="w-full p-2 rounded-l-lg bg-gray-800 border border-gray-600 
-                focus:outline-none focus:border-green-400"
-              />
-              <button
-                type="submit"
-                className="bg-gradient-to-r from-green-400 to-blue-500 text-white px-4 
-                py-2 rounded-r-lg"
-              >
-                Subscribe
-              </button>
-            </form>
-          </div>
-        </div>
-
-        <div
-          className="border-t border-gray-600 pt-4 flex flex-col md:flex-row 
-          justify-between items-center"
-        >
-          <p className="text-gray-400">
-            &copy; {new Date().getFullYear()} Sumit Kumar. All rights reserved.
-          </p>
-          <div className="flex space-x-4 my-4 md:my-0">
-            <a href="https://www.instagram.com/nevertheless_sumit" className="text-gray-400 hover:text-white">
-              <FaInstagram />
+          <div className="flex space-x-6 mt-4 md:mt-0">
+            <a href="https://www.instagram.com/nevertheless_sumit" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-accent transition-colors duration-300 transform hover:scale-110">
+              <FaInstagram size={24} />
             </a>
-            <a href="https://www.linkedin.com/in/sumit8720/" className="text-gray-400 hover:text-white">
-              <FaLinkedin />
+            <a href="https://www.linkedin.com/in/sumit8720/" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-accent transition-colors duration-300 transform hover:scale-110">
+              <FaLinkedin size={24} />
             </a>
-            <a href="https://github.com/sumit8720" className="text-gray-400 hover:text-white">
-              <FaGithub />
-            </a>
-          </div>
-          <div className="flex space-x-4">
-            <a href="#" className="text-gray-400 hover:text-white">
-              Privacy
-            </a>
-            <a href="#" className="text-gray-400 hover:text-white">
-              Terms of Service
+            <a href="https://github.com/sumit8720" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-accent transition-colors duration-300 transform hover:scale-110">
+              <FaGithub size={24} />
             </a>
           </div>
         </div>
