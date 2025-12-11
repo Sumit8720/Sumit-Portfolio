@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaFacebook, FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import { FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -9,7 +9,7 @@ const Footer = () => {
           <div className="mb-4 md:mb-0 text-center md:text-left">
             <h3 className="text-2xl font-bold gradient-text mb-2">Sumit Kumar</h3>
             <p className="text-text-muted text-sm">
-              Full-Stack Developer & Machine Learning Enthusiast
+              Data Engineer & Machine Learning Specialist
             </p>
             <p className="text-text-muted text-xs mt-1">
               &copy; {new Date().getFullYear()} Sumit Kumar. All rights reserved.

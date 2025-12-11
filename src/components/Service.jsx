@@ -1,6 +1,5 @@
 import React from "react";
 import { FaDatabase, FaCloud, FaChartLine } from "react-icons/fa";
-import { SiApachespark, SiPython, SiAmazonaws } from "react-icons/si";
 import { motion } from "framer-motion";
 
 const services = [
