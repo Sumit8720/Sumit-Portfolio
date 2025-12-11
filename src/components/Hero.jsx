@@ -45,7 +45,7 @@ const Hero = () => {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="text-xl md:text-2xl text-text-muted mb-8"
         >
-          Data Engineer & Machine Learning Enthusiast
+          Data Engineer & Machine Learning Specialist
         </motion.h2>
 
         <motion.p
