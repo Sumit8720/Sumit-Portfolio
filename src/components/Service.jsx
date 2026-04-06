@@ -1,4 +1,3 @@
-import React from "react";
 import { FaDatabase, FaCloud, FaChartLine } from "react-icons/fa";
 import { motion } from "framer-motion";
 

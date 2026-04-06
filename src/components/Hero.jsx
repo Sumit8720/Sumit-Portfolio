@@ -1,11 +1,10 @@
-import React from "react";
 import HeroImage from "../assets/profile-pic.png";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
-    <div className="bg-primary text-text-main text-center py-20 md:py-32 relative overflow-hidden transition-colors duration-300">
+    <div className="bg-primary text-text-main text-center py-24 md:py-36 relative overflow-hidden transition-colors duration-300" id="home">
       {/* Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
         <div className="absolute top-[-10%] left-[-10%] w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-pulse"></div>

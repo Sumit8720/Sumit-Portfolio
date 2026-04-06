@@ -1,23 +1,58 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import projectAI from "../assets/project_ai.png";
 import projectWeb from "../assets/project_web.png";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // Fallback featured projects in case API fails or limit is reached
+  const featuredProjects = [
+    {
+      id: "spam-sms",
+      name: "SMS-Spam-Detection-using-LSTM",
+      description: "Machine learning model using LSTM neural networks to classify SMS messages as spam or legitimate with 98%+ accuracy.",
+      html_url: "https://github.com/sumit8720/SMS-Spam-Detection-using-LSTM",
+      language: "Python",
+      topics: ["Deep Learning", "LSTM", "NLP"]
+    },
+    {
+      id: "kidney-disease",
+      name: "Chronic-Kidney-Disease-Prediction",
+      description: "Predictive model for early detection of kidney disease using machine learning algorithms and clinical data analysis.",
+      html_url: "https://github.com/sumit8720/Chronic-Kidney-Disease-Prediction",
+      language: "Python",
+      topics: ["Machine Learning", "Health-Tech"]
+    },
+    {
+      id: "bike-classification",
+      name: "Motorcycle-Classification-CNN",
+      description: "Deep learning project using Convolutional Neural Networks (CNN) to classify 50+ different types of motorcycles from image datasets.",
+      html_url: "https://github.com/sumit8720/Motorcycle-Classification-CNN",
+      language: "Python",
+      topics: ["Computer Vision", "CNN"]
+    }
+  ];
+
   useEffect(() => {
     const fetchProjects = async () => {
       try {
         const response = await fetch("https://api.github.com/users/sumit8720/repos");
+        if (!response.ok) throw new Error("API Limit reached");
         const data = await response.json();
-        // Filter out forked repos if desired, or sort by stars/updated
-        const filteredData = data.filter(repo => !repo.fork).sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
-        setProjects(filteredData);
+        
+        const filteredData = data
+          .filter(repo => !repo.fork && repo.name !== "Sumit-Portfolio")
+          .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+        
+        // If we have data, use it, otherwise merge with featured
+        setProjects(filteredData.length > 0 ? filteredData : featuredProjects);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching projects:", error);
+        setProjects(featuredProjects); // Use fallback data
         setLoading(false);
       }
     };
@@ -97,12 +132,19 @@ const Projects = () => {
                     className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="text-white font-semibold text-lg">View Details</span>
+                    <Link
+                      to={`/project/${project.name}`}
+                      className="text-white font-semibold text-lg border border-white px-6 py-2 rounded-full hover:bg-white hover:text-black transition-all cursor-pointer"
+                    >
+                      View Details
+                    </Link>
                   </div>
                 </div>
                 <div className="p-6 flex-grow flex flex-col">
                   <h3 className="text-xl font-bold mb-2 group-hover:text-accent transition-colors duration-300 break-words">
-                    {project.name.replace(/-/g, " ")}
+                    <Link to={`/project/${project.name}`}>
+                      {project.name.replace(/-/g, " ")}
+                    </Link>
                   </h3>
                   <p className="text-text-muted text-sm mb-4 line-clamp-3">
                     {getProjectDescription(project)}

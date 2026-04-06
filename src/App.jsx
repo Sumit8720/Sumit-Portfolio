@@ -4,12 +4,15 @@ import Layout from './components/Layout';
 import Hero from './components/Hero';
 import About from './components/About';
 import Projects from './components/Projects';
+import ProjectDetails from './components/ProjectDetails';
 import Contact from './components/Contact';
 import Service from './components/Service';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Layout>
         <Routes>
           <Route path="/" element={
@@ -23,6 +26,7 @@ function App() {
           } />
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/project/:projectName" element={<ProjectDetails />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </Layout>
